@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git branch: 'master', url: 'https://github.com/DeepakPrakasam/Maven.git'
+                git url: 'https://github.com/DeepakPrakasam/Maven.git', branch: 'master'
             }
         }
 
         stage('Build') {
             steps {
-                sh "mvn clean install"
+                sh "mvn clean package"
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Docker_cred', url: 'https://index.docker.io/v1/') {
+                    withDockerRegistry(credentialsId: 'jenkins_token', url: 'https://index.docker.io/v1/') {
                         sh 'docker push deepakp2003/simplewebapp'
                     }
                 }
