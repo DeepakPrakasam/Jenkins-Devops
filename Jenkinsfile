@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-        git branch: 'main', url: 'https://github.com/DeepakPrakasam/Maven.git'
+        git branch: 'master', url: 'https://github.com/DeepakPrakasam/Maven.git'
             }
         }
         stage('build') {
