@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git url: 'https://github.com/DeepakPrakasam/Maven.git', branch: 'master'
+                git url: 'https://github.com/DeepakPrakasam/Jenkins-Devops.git', branch: 'master'
             }
         }
 
